@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Vazirmatn";
+  src: local("Vazirmatn-VariableFont_wght"),
+    url("./assets/fonts/Vazirmatn-VariableFont_wght.ttf") format("truetype");
+}
+
+html {
+  @apply font-vazirmatn text-white bg-bg;
+}
+
+.container {
+  @apply mx-auto px-4 md:px-6 xl:px-8 xl:max-w-7xl;
+}
