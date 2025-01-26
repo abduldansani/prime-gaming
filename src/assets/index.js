@@ -48,6 +48,7 @@ import arrowRight from "./icons/arrowRight.svg";
 import metacritic from "./icons/metacritic.svg";
 import calendar from "./icons/calendar.svg";
 import menu from "./icons/menu.svg";
+import close from "./icons/close.svg";
 import chevronRight from "./icons/chevronRight.svg";
 import arrowPrimary from "./icons/arrowPrimary.svg";
 import cpu from "./icons/cpu.svg";
@@ -135,4 +136,5 @@ export {
   youtube,
   faqClose,
   faqOpen,
+  close,
 };

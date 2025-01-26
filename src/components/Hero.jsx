@@ -16,21 +16,27 @@ const Hero = () => {
       } else {
         handleNext();
       }
-    }, 5000);
+    }, 10000);
 
-    // Cleanup the interval on component unmount
     return () => clearInterval(intervalId);
-  }, [selectedIndex]); // Empty dependency array ensures it runs only once after mounting
+  }, [selectedIndex]);
 
   const handleNext = () => {
-    if (selectedIndex >= popularGames.length - 1) return;
-    setSelectedIndex(selectedIndex + 1);
+    if (selectedIndex >= popularGames.length - 1) {
+      setSelectedIndex(0);
+    } else {
+      setSelectedIndex(selectedIndex + 1);
+    }
   };
 
   const handlePrev = () => {
-    if (selectedIndex <= 0) return;
-    setSelectedIndex(selectedIndex - 1);
+    if (selectedIndex <= 0) {
+      setSelectedIndex(popularGames.length - 1);
+    } else {
+      setSelectedIndex(selectedIndex - 1);
+    }
   };
+
   return (
     <div>
       <Header />
@@ -108,7 +114,7 @@ const Hero = () => {
           </div>
         </div>
         {/* Larger screens */}
-        <div className="container relative max-lg:hidden py-24 xl:py-[120px] flex gap-5 xl:gap-8 justify-between items-end">
+        <div className="container relative max-lg:hidden pb-24 xl:pb-[120px] pt-52 flex gap-5 xl:gap-8 justify-between items-end">
           <div className="w-[323px] xl:w-[333px] flex flex-col gap-8">
             <div className="space-y-2">
               <div className="text-[40px] font-extrabold">
@@ -198,10 +204,11 @@ const Hero = () => {
             <div className="flex gap-2 justify-between items-end">
               {popularGames.map((game, i) => (
                 <img
+                  onClick={() => setSelectedIndex(i)}
                   key={game.id}
                   src={game.poster}
                   alt={game.name}
-                  className={`w-[101.8px] xl:w-[153.4px] ${
+                  className={`cursor-pointer w-[101.8px] xl:w-[153.4px] ${
                     selectedIndex === i
                       ? "h-[179px] xl:h-[240px]"
                       : "h-[164px] xl:h-[220px]"

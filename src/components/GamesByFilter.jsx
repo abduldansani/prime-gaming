@@ -8,7 +8,8 @@ import Section from "./shared/Section";
 const GamesByFilter = ({}) => {
   return (
     <Section>
-      <div className="container space-y-6 lg:space-y-8">
+      <div className="relative container space-y-6 lg:space-y-8">
+        <div className="absolute w-1/4 h-full bg-violetLight blur-[200px] left-0 -z-10" />
         <div className="space-y-1 text-center">
           <h1 className="text-2xl font-bold">Games By Filter</h1>
           <p className="text-grey">

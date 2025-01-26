@@ -1,9 +1,13 @@
 const PrimaryButton = ({ className, type, children }) => {
   const fill = (
-    <button className={`bg-primary ${className}`}>{children}</button>
+    <button className={`bg-primary hover:bg-primaryHover ${className}`}>
+      {children}
+    </button>
   );
   const outline = (
-    <button className={`border-2 border-primary text-primary ${className}`}>
+    <button
+      className={`border-2 border-primary hover:border-primaryHover hover:text-primaryHover text-primary ${className}`}
+    >
       {children}
     </button>
   );

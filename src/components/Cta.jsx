@@ -4,7 +4,8 @@ import Section from "./shared/Section";
 const Cta = () => {
   return (
     <Section>
-      <div className="container flex max-lg:flex-col gap-4 xl:gap-6">
+      <div className="relative container flex max-lg:flex-col gap-4 xl:gap-6">
+        <div className="absolute w-1/4 h-full bg-violetLight blur-[250px] right-0 -z-10" />
         <div className="flex flex-col gap-3 xl:gap-4 justify-between">
           <h2 className="font-semibold text-xl text-center">
             Unlock the Ultimate{" "}

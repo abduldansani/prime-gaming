@@ -6,8 +6,9 @@ import { faqClose, faqOpen } from "../assets";
 const Faq = () => {
   const [openQuestion, setOpenQuestion] = useState(null);
   return (
-    <Section>
-      <div className="container space-y-3 xl:space-y-6">
+    <Section classNAme="overflow-hidden">
+      <div className="relative container space-y-3 xl:space-y-6">
+        <div className="absolute w-1/4 h-full bg-violetLight blur-[250px] right-0 -z-10" />
         <h2 className="font-bold text-[32px] text-center">FAQ</h2>
         <div className="md:border-2 border-primary3 rounded-lg flex flex-col gap-6">
           {faq.map((q, i) => (

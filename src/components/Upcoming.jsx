@@ -6,7 +6,8 @@ import UpcomingGameCard from "./UpcomingGameCard";
 const Upcoming = () => {
   return (
     <Section>
-      <div className="container space-y-6 xl:space-y-8">
+      <div className="relative container space-y-6 xl:space-y-8">
+        <div className="absolute w-1/4 h-full bg-violetLight blur-[200px] left-0 -z-10" />
         <div className="flex justify-between">
           <div className="flex gap-12 items-center">
             <h2 className="text-xl lg:text-2xl font-semibold lg:font-bold">

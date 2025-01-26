@@ -5,6 +5,7 @@ export default {
     extend: {
       colors: {
         primary: "#FF5733",
+        primaryHover: "#E64E2E",
         primaryDim: "#8C301C",
         primary3: "#6B2515",
         primary4: "#B53E24",
@@ -22,5 +23,17 @@ export default {
     },
     safelist: ["text-primary"],
   },
-  plugins: [],
+  plugins: [
+    function ({ addUtilities }) {
+      addUtilities({
+        ".no-scrollbar::-webkit-scrollbar": {
+          display: "none",
+        },
+        ".no-scrollbar": {
+          "-ms-overflow-style": "none",
+          "scrollbar-width": "none",
+        },
+      });
+    },
+  ],
 };

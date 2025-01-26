@@ -6,7 +6,8 @@ import Section from "./shared/Section";
 const Reviews = () => {
   return (
     <Section>
-      <div className="container space-y-6 xl:space-y-8">
+      <div className="relative container space-y-6 xl:space-y-8">
+        <div className="absolute w-1/4 h-full bg-violetLight blur-[300px] right-0 -z-10" />
         <div className="flex justify-between">
           <div className="flex gap-12 items-center">
             <h2 className="text-xl lg:text-2xl font-semibold lg:font-bold">
@@ -37,7 +38,7 @@ const Reviews = () => {
             <img src={chevronRight} alt="-" width={16} height={16} />
           </button>
         </div>
-        <div className="overflow-hidden flex items-center gap-4 md:grid xl:grid-cols-2 md:gap-3 xl:gap-6">
+        <div className="overflow-scroll no-scrollbar flex items-center gap-4 md:grid xl:grid-cols-2 md:gap-3 xl:gap-6">
           {gameReviews.map((game) => (
             <ReviewCard key={game.id} game={game} />
           ))}

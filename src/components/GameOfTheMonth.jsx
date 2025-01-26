@@ -8,9 +8,26 @@ const GameOfTheMonth = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const selectedMedia = gameOfTheMonth.trailerAndGallery[selectedIndex];
 
+  const handleNext = () => {
+    if (selectedIndex === gameOfTheMonth.trailerAndGallery.length - 1) {
+      setSelectedIndex(0);
+    } else {
+      setSelectedIndex(selectedIndex + 1);
+    }
+  };
+
+  const handlePrev = () => {
+    if (selectedIndex === 0) {
+      setSelectedIndex(gameOfTheMonth.trailerAndGallery.length - 1);
+    } else {
+      setSelectedIndex(selectedIndex - 1);
+    }
+  };
+
   return (
     <Section>
-      <div className="container space-y-6 xl:space-y-8">
+      <div className=" relative container space-y-6 xl:space-y-8">
+        <div className="absolute w-1/4 h-full bg-violetLight blur-[300px] right-0 -z-10" />
         <h1 className="font-bold text-2xl text-center">Game Of The Month</h1>
         <div className="flex flex-col lg:flex-row gap-4 lg:gap-6 xl:gap-9">
           <div className="space-y-4 lg:w-1/2">
@@ -88,32 +105,44 @@ const GameOfTheMonth = () => {
               </h2>
               <div className="space-y-2">
                 <div className="flex items-center gap-2.5">
-                  <button className="border-2 border-white w-11 h-8 rounded-lg flex items-center justify-center">
+                  <button
+                    onClick={handlePrev}
+                    className="border-2 border-white w-11 h-8 rounded-lg flex items-center justify-center"
+                  >
                     <img src={arrowLeft} alt="previous" />
                   </button>
-                  <button className="border-2 border-white w-11 h-8 rounded-lg flex items-center justify-center">
+                  <button
+                    onClick={handleNext}
+                    className="border-2 border-white w-11 h-8 rounded-lg flex items-center justify-center"
+                  >
                     <img src={arrowRight} alt="next" />
                   </button>
                 </div>
                 <div className="flex justify-between items-center">
-                  <div className="w-7 h-3 rounded-lg bg-primary" />
-                  <div className="size-[7px] rounded-full bg-violet" />
-                  <div className="size-[7px] rounded-full bg-violet" />
-                  <div className="size-[7px] rounded-full bg-violet" />
+                  {gameOfTheMonth.trailerAndGallery.map((item, i) => (
+                    <div
+                      className={`${
+                        i === selectedIndex
+                          ? "w-7 h-3 rounded-lg bg-primary"
+                          : "size-[7px] rounded-full bg-violet"
+                      }`}
+                    />
+                  ))}
                 </div>
               </div>
             </div>
             <img src={selectedMedia} alt="-" className="w-full" />
-            <div className="flex gap-2 xl:gap-3 justify-between items-center overflow-hidden">
+            <div className="flex gap-2 xl:gap-3 justify-between items-center overflow-scroll no-scrollbar">
               {gameOfTheMonth.trailerAndGallery.map((media, i) => (
                 <img
+                  onClick={() => setSelectedIndex(i)}
                   key={i}
                   src={media}
                   alt=""
-                  className={`${
+                  className={`cursor-pointer ${
                     i === selectedIndex
                       ? "w-[157px] h-[84px]"
-                      : "w-[67px] lg:w-[83px] xl:w-[129.67px] h-[60px]"
+                      : "w-3/4 lg:w-[83px] xl:w-[129.67px] h-[60px]"
                   }`}
                 />
               ))}
