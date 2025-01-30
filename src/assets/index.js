@@ -41,7 +41,7 @@ import acMiragePoster from "./images/acMiragePoster.png";
 import apexLegendsPoster from "./images/apexLegendsPoster.png";
 import aW2Poster from "./images/aW2Poster.png";
 import eldenRingPoster from "./images/eldenRingPoster.png";
-import cyberPunkPoster from "./images/cyberPunkPoster.png";
+import cyberpunkPoster from "./images/cyberpunkPoster.png";
 import farCryPoster from "./images/farCryPoster.png";
 import pesPoster from "./images/pesPoster.png";
 import rE4Poster from "./images/rE4Poster.png";
@@ -136,7 +136,7 @@ export {
   aW2Poster,
   acMiragePoster,
   apexLegendsPoster,
-  cyberPunkPoster,
+  cyberpunkPoster,
   farCryPoster,
   eldenRingPoster,
   pesPoster,

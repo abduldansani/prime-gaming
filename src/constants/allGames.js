@@ -3,7 +3,7 @@ import {
   alanWake,
   apexLegendsPoster,
   blackMyth,
-  cyberPunkPoster,
+  cyberpunkPoster,
   eldenRingPoster,
   farCryPoster,
   ghostOfTushimaPoster,
@@ -29,7 +29,7 @@ export const allGames = [
     publisher: "CD Projekt",
     players: "single",
     online: false,
-    image: cyberPunkPoster,
+    image: cyberpunkPoster,
   },
   {
     id: 2,
