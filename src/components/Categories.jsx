@@ -9,26 +9,26 @@ const Categories = () => {
     <Section>
       <div className="container space-y-6 xl:space-y-8">
         <div className="flex justify-between">
-          <h2 className="text-xl lg:text-2xl font-semibold lg:font-bold">
+          <h2 className="text-xl font-semibold lg:text-2xl lg:font-bold">
             Game Categories
           </h2>
-          <div className="space-y-2 cursor-not-allowed">
-            <div className="cursor-not-allowed max-lg:hidden flex items-center gap-2.5">
-              <button className="border-2 border-white size-8 rounded-lg flex items-center justify-center">
+          <div className="cursor-not-allowed space-y-2">
+            <div className="flex cursor-not-allowed items-center gap-2.5 max-lg:hidden">
+              <button className="flex size-8 cursor-not-allowed items-center justify-center rounded-lg border-2 border-white">
                 <img src={arrowLeft} alt="previous" />
               </button>
-              <button className="border-2 border-white size-8 rounded-lg flex items-center justify-center">
+              <button className="flex size-8 cursor-not-allowed items-center justify-center rounded-lg border-2 border-white">
                 <img src={arrowRight} alt="next" />
               </button>
             </div>
-            <div className="flex justify-between items-center">
-              <div className="w-10 h-3 rounded-lg bg-primary" />
-              <div className="w-5 h-2 rounded-lg bg-violet" />
+            <div className="flex items-center justify-between">
+              <div className="h-3 w-10 rounded-lg bg-primary" />
+              <div className="h-2 w-5 rounded-lg bg-violet" />
             </div>
           </div>
           <button
             onClick={() => setShowAll(!showAll)}
-            className="lg:hidden text-primary text-sm font-light flex items-center gap-2"
+            className="flex items-center gap-2 text-sm font-light text-primary lg:hidden"
           >
             <div className="">{showAll ? "View less" : "View All"}</div>
             <img src={chevronRight} alt="-" width={16} height={16} />
@@ -42,12 +42,12 @@ const Categories = () => {
           {categories.map((category, i) => (
             <div
               key={category.id}
-              className={`p-1 shrink-0 h-[194px] lg:h-[177px] bg-no-repeat bg-cover bg-center ${
+              className={`h-[194px] shrink-0 bg-cover bg-center bg-no-repeat p-1 lg:h-[177px] ${
                 showAll ? "max-lg:w-full" : "max-lg:w-[280.5px]"
               } ${(i === 0 || i === categories.length - 1) && "lg:col-span-2"}`}
               style={{ backgroundImage: `url(${category.image})` }}
             >
-              <h3 className="w-full h-full bg-black bg-opacity-30 p-4 flex items-end text-xl font-semibold">
+              <h3 className="flex h-full w-full items-end bg-black bg-opacity-30 p-4 text-xl font-semibold">
                 {category.name}
               </h3>
             </div>

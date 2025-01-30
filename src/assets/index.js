@@ -37,6 +37,14 @@ import blog2 from "./images/blog2.png";
 import blog3 from "./images/blog3.png";
 import blog4 from "./images/blog4.png";
 import blog5 from "./images/blog5.png";
+import acMiragePoster from "./images/acMiragePoster.png";
+import apexLegendsPoster from "./images/apexLegendsPoster.png";
+import aW2Poster from "./images/aW2Poster.png";
+import eldenRingPoster from "./images/eldenRingPoster.png";
+import cyberPunkPoster from "./images/cyberPunkPoster.png";
+import farCryPoster from "./images/farCryPoster.png";
+import pesPoster from "./images/pesPoster.png";
+import rE4Poster from "./images/rE4Poster.png";
 
 import gamepad from "./icons/gamepad.svg";
 import searchIcon from "./icons/searchIcon.svg";
@@ -67,6 +75,7 @@ import facebook from "./icons/facebook.svg";
 import instagram from "./icons/instagram.svg";
 import x from "./icons/x.svg";
 import youtube from "./icons/youtube.svg";
+import newspaper from "./icons/newspaper.svg";
 
 export {
   theWitcher3Bg,
@@ -124,6 +133,14 @@ export {
   blog3,
   blog4,
   blog5,
+  aW2Poster,
+  acMiragePoster,
+  apexLegendsPoster,
+  cyberPunkPoster,
+  farCryPoster,
+  eldenRingPoster,
+  pesPoster,
+  rE4Poster,
   user,
   email,
   google,
@@ -137,4 +154,5 @@ export {
   faqClose,
   faqOpen,
   close,
+  newspaper,
 };

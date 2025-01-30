@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { chevronDown, close, menu, searchIcon } from "../assets";
 import { navLinks } from "../constants/navLinks";
 import Logo from "./shared/Logo";
@@ -48,16 +48,25 @@ const Header = () => {
       setHidden(false);
     }
   });
+  useEffect(() => {
+    menuOpen
+      ? (document.body.style.overflow = "hidden")
+      : (document.body.style.overflow = "");
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
   return (
     <motion.header
       variants={headerVar}
       animate={hidden ? "hidden" : "visible"}
-      className="z-50 py-3 lg:py-2.5 xl:py-3 fixed top-0 left-0 bg-bg right-0 bg-opacity-[15%] backdrop-blur-md"
+      className="fixed left-0 right-0 top-0 z-50 bg-bg bg-opacity-[15%] py-3 backdrop-blur-md lg:py-2.5 xl:py-3"
     >
-      <div className="container flex gap-5 justify-between items-center">
-        <div className="flex gap-5 items-center">
+      <div className="container flex items-center justify-between gap-5">
+        <div className="flex items-center gap-5">
           <Logo />
-          <div className="size-9 lg:size-[44px] bg-primary flex items-center justify-center rounded-full">
+          <div className="flex size-9 items-center justify-center rounded-full bg-primary lg:size-[44px]">
             <img
               src={searchIcon}
               alt="search"
@@ -65,12 +74,12 @@ const Header = () => {
             />
           </div>
         </div>
-        <nav className="max-lg:hidden flex-1 flex items-center justify-around">
+        <nav className="flex flex-1 items-center justify-around max-lg:hidden">
           {navLinks.map((navLink, i) => (
-            <div key={navLink.id} className="flex gap-1 items-center">
+            <div key={navLink.id} className="flex items-center gap-1">
               <a
                 href={navLink.url}
-                className={`text-sm xl:text-[15px] font-medium ${
+                className={`text-sm font-medium xl:text-[15px] ${
                   i === 0 && "text-primary"
                 }`}
               >
@@ -85,13 +94,13 @@ const Header = () => {
         <div className="flex gap-4 max-lg:hidden">
           <PrimaryButton
             type="fill"
-            className="py-3 px-6 rounded-2xl font-medium"
+            className="rounded-2xl px-6 py-3 font-medium"
           >
             Sign Up
           </PrimaryButton>
           <PrimaryButton
             type="outline"
-            className="py-3 px-6 rounded-2xl font-medium"
+            className="rounded-2xl px-6 py-3 font-medium"
           >
             Login
           </PrimaryButton>
@@ -107,7 +116,7 @@ const Header = () => {
             initial="initial"
             animate="animate"
             exit="exit"
-            className="bg-bg w-screen h-screen fixed top-0 p-4 flex flex-col"
+            className="fixed top-0 flex h-screen w-screen flex-col bg-bg p-4 lg:hidden"
           >
             <div className="flex items-center justify-between">
               <Logo />
@@ -115,23 +124,23 @@ const Header = () => {
                 <img src={close} alt="close" width={36} height={36} />
               </button>
             </div>
-            <nav className="relative flex-1 flex flex-col items-center gap-4 justify-center font-semibold text-lg">
-              <div className="absolute -z-10 w-1/4 h-1/3 rounded-full top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 bg-violetLight blur-[100px]" />
+            <nav className="relative mt-20 flex flex-1 flex-col items-center gap-4 text-lg font-semibold">
+              <div className="absolute left-1/2 top-1/2 -z-10 h-1/3 w-1/4 -translate-x-1/2 -translate-y-1/2 rounded-full bg-violetLight blur-[100px]" />
               {navLinks.map((link) => (
                 <a key={link.id} href="" className="">
                   {link.text}
                 </a>
               ))}
-              <div className="flex gap-4 mt-8">
+              <div className="mt-8 flex gap-4">
                 <PrimaryButton
                   type="fill"
-                  className="py-3 px-6 rounded-2xl font-medium"
+                  className="rounded-2xl px-6 py-3 font-medium"
                 >
                   Sign Up
                 </PrimaryButton>
                 <PrimaryButton
                   type="outline"
-                  className="py-3 px-6 rounded-2xl font-medium"
+                  className="rounded-2xl px-6 py-3 font-medium"
                 >
                   Login
                 </PrimaryButton>

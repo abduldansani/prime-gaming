@@ -6,7 +6,7 @@ const PrimaryButton = ({ className, type, children }) => {
   );
   const outline = (
     <button
-      className={`border-2 border-primary hover:border-primaryHover hover:text-primaryHover text-primary ${className}`}
+      className={`border-2 border-primary text-primary hover:border-primaryHover hover:text-primaryHover ${className}`}
     >
       {children}
     </button>

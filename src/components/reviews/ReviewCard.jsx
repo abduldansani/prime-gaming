@@ -1,33 +1,35 @@
-import { calendar, comment, metacritic, star, view } from "../assets";
-import PrimaryButton from "./shared/PrimaryButton";
+import { calendar, comment, metacritic, star, view } from "../../assets";
+import PrimaryButton from "../shared/PrimaryButton";
 
-const ReviewCard = ({ game }) => {
+const ReviewCard = ({ game, viewAll }) => {
   return (
-    <div className="p-2 flex max-md:flex-col gap-4 lg:gap-5 xl:gap-3 rounded-lg border-2 border-violetLight">
+    <div className="flex gap-4 rounded-lg border-2 border-violetLight p-2 max-md:flex-col lg:gap-5 xl:gap-3">
       <div
-        className="shrink-0 w-full max-md:min-w-[294px] max-md:min-h-[194px] md:w-[140px] bg-cover bg-center rounded-lg"
+        className={`w-full shrink-0 ${
+          viewAll ? "max-md:w-full" : "max-md:min-w-[294px]"
+        } rounded-lg bg-cover bg-center max-md:min-h-[194px] md:w-[140px]`}
         style={{ backgroundImage: `url(${game.image})` }}
       ></div>
-      <div className="flex flex-col gap-4 md:gap-2 justify-between">
+      <div className="flex flex-col justify-between gap-4 md:gap-2">
         <h3 className="border-b-2 border-white font-medium">
           {game.game} <span className="text-grey">({game.year})</span>
         </h3>
-        <p className="text-xs text-grey font-light">{game.description}</p>
+        <p className="text-xs font-light text-grey">{game.description}</p>
         <div className="flex items-center gap-1">
           {game.categories.map((category, i) => (
             <div
               key={i}
-              className="rounded-[35px] py-1 px-3 bg-bg2 text-[9px] font-light"
+              className="rounded-[35px] bg-bg2 px-3 py-1 text-[9px] font-light"
             >
               {category}
             </div>
           ))}
         </div>
-        <div className="flex justify-between items-center">
+        <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
             <img src={metacritic} alt="metacritic" width={20} height={20} />
             <div className="text-grey">
-              <span className="text-xl text-yellow font-bold">
+              <span className="text-xl font-bold text-yellow">
                 {game.review}
               </span>
               /100
@@ -39,23 +41,23 @@ const ReviewCard = ({ game }) => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col gap-2 justify-between shrink-0">
-        <div className="flex md:flex-col gap-1 justify-between items-center">
-          <div className="flex gap-1 items-center flex-col">
+      <div className="flex shrink-0 flex-col justify-between gap-2">
+        <div className="flex items-center justify-between gap-1 md:flex-col">
+          <div className="flex flex-col items-center gap-1">
             <img src={view} alt="views" width={20} height={20} />
             <div className="text-sm">
               {game.views}{" "}
               <span className="text-xs font-light text-grey">Views</span>
             </div>
           </div>
-          <div className="flex gap-1 items-center flex-col">
+          <div className="flex flex-col items-center gap-1">
             <img src={comment} alt="views" width={20} height={20} />
             <div className="text-sm">
               {game.comments}{" "}
               <span className="text-xs font-light text-grey">Comments</span>
             </div>
           </div>
-          <div className="flex gap-1 items-center flex-col">
+          <div className="flex flex-col items-center gap-1">
             <img src={star} alt="views" width={20} height={20} />
             <div className="text-sm">
               {game.stars}{" "}
@@ -65,7 +67,7 @@ const ReviewCard = ({ game }) => {
         </div>
         <PrimaryButton
           type="fill"
-          className="px-4 py-2 text-sm font-light rounded-xl"
+          className="rounded-xl px-4 py-2 text-sm font-light"
         >
           Full Review
         </PrimaryButton>

@@ -1,8 +1,24 @@
-# React + Vite
+# Gaming Website Landing Page
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a React-based implementation of a gaming website landing page. The design was inspired by a Figma file created by Adib Mohammad Pou.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Fully responsive layout
+- Immersive and modern gaming-themed design
+- Optimized for performance and accessibility
+
+## Technologies Used
+
+- **React.js**: For building an interactive user interface.
+- **Tailwind CSS**: For efficient styling and responsive design.
+
+## Design Credits
+
+The design for this project is based on the creative work of **[Adib Mohammad Pou](https://www.figma.com/@adibmohammadpou)**.  
+You can view the original design file on Figma: **[Gaming Website Design](https://www.figma.com/community/file/1423225773174472363/gaming-website-design)**.  
+Explore more of their designs on their [Figma profile](https://www.figma.com/@adibmohammadpou).
+
+## Acknowledgments
+
+Special thanks to **Adib Mohammad Pou** for the fantastic design inspiration!

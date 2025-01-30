@@ -4,14 +4,15 @@
 
 @font-face {
   font-family: "Vazirmatn";
-  src: local("Vazirmatn-VariableFont_wght"),
+  src:
+    local("Vazirmatn-VariableFont_wght"),
     url("./assets/fonts/Vazirmatn-VariableFont_wght.ttf") format("truetype");
 }
 
 html {
-  @apply font-vazirmatn text-white bg-bg;
+  @apply bg-bg font-vazirmatn text-white;
 }
 
 .container {
-  @apply mx-auto px-4 md:px-6 xl:px-8 xl:max-w-7xl;
+  @apply mx-auto px-4 md:px-6 xl:max-w-7xl xl:px-8;
 }

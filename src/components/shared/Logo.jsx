@@ -5,9 +5,9 @@ const Logo = () => {
     <div className="flex flex-col">
       <div className="flex items-center gap-1">
         <img src={gamepad} alt="gamepad" />
-        <div className="font-light text-xs md:text-sm xl:text-base">Prime</div>
+        <div className="text-xs font-light md:text-sm xl:text-base">Prime</div>
       </div>
-      <div className="md:text-xl xl:text-[22px] font-black text-primary">
+      <div className="font-black text-primary md:text-xl xl:text-[22px]">
         Gaming
       </div>
     </div>

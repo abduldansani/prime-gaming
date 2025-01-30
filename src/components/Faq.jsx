@@ -7,20 +7,21 @@ const Faq = () => {
   const [openQuestion, setOpenQuestion] = useState(null);
   return (
     <Section classNAme="overflow-hidden">
-      <div className="relative container space-y-3 xl:space-y-6">
-        <div className="absolute w-1/4 h-full bg-violetLight blur-[250px] right-0 -z-10" />
-        <h2 className="font-bold text-[32px] text-center">FAQ</h2>
-        <div className="md:border-2 border-primary3 rounded-lg flex flex-col gap-6">
+      <div className="container relative space-y-3 xl:space-y-6">
+        <div className="absolute right-0 -z-10 h-full w-1/4 bg-violetLight blur-[300px]" />
+        <div className="absolute left-0 -z-10 h-full w-1/4 bg-violetLight blur-[300px]" />
+        <h2 className="text-center text-[32px] font-bold">FAQ</h2>
+        <div className="flex flex-col gap-6 rounded-lg border-primary3 md:border-2">
           {faq.map((q, i) => (
             <div key={q.id}>
               <div
-                className={`relative bg-bg2 shadow-xl -mt-0.5 -ml-px -mr-0.5 p-3 md:py-3 md:px-4 border-2 flex rounded-lg items-center justify-between ${
+                className={`relative -ml-px -mr-0.5 -mt-0.5 flex items-center justify-between rounded-lg border-2 bg-bg2 p-3 shadow-xl md:px-4 md:py-3 ${
                   openQuestion === i
                     ? "border-primary"
-                    : "border-primary3 -mb-px"
+                    : "-mb-px border-primary3"
                 }`}
               >
-                <h3 className="lg:text-xl font-semibold">{q.question}</h3>
+                <h3 className="font-semibold lg:text-xl">{q.question}</h3>
                 <button
                   onClick={() => setOpenQuestion(openQuestion === i ? null : i)}
                 >
@@ -34,11 +35,11 @@ const Faq = () => {
               </div>
               {openQuestion === i && (
                 <div
-                  className={`bg-bg2 -mb-px -mr-0.5 -ml-px ${
+                  className={`-mb-px -ml-px -mr-0.5 bg-bg2 ${
                     openQuestion === i ? "border-primary" : "border-primary3"
-                  } -mt-2 pt-4 border-x-2 border-b-2  px-3 md:px-6 pb-3 rounded-b-lg`}
+                  } -mt-2 rounded-b-lg border-x-2 border-b-2 px-3 pb-3 pt-4 md:px-6`}
                 >
-                  <p className="max-md:text-sm text-grey">{q.answer}</p>
+                  <p className="text-grey max-md:text-sm">{q.answer}</p>
                 </div>
               )}
             </div>

@@ -1,7 +1,7 @@
 const GreyButton = ({ className, children }) => {
   return (
     <button
-      className={`rounded-lg py-2 px-6 border-2 border-grey text-grey text-lg ${className}`}
+      className={`rounded-lg border-2 border-grey px-6 py-2 text-lg text-grey ${className}`}
     >
       {children}
     </button>
