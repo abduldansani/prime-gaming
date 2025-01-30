@@ -1,12 +1,12 @@
 import { calendar, comment, metacritic, star, view } from "../../assets";
 import PrimaryButton from "../shared/PrimaryButton";
 
-const ReviewCard = ({ game, viewAll }) => {
+const ReviewCard = ({ game, showAll }) => {
   return (
     <div className="flex gap-4 rounded-lg border-2 border-violetLight p-2 max-md:flex-col lg:gap-5 xl:gap-3">
       <div
         className={`w-full shrink-0 ${
-          viewAll ? "max-md:w-full" : "max-md:min-w-[294px]"
+          showAll ? "max-md:w-full" : "max-md:min-w-[294px]"
         } rounded-lg bg-cover bg-center max-md:min-h-[194px] md:w-[140px]`}
         style={{ backgroundImage: `url(${game.image})` }}
       ></div>

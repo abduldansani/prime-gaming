@@ -3,12 +3,20 @@ import { arrowLeft, arrowRight, chevronRight } from "../../assets";
 import { gameReviews } from "../../constants/gameReviews";
 import ReviewCard from "./ReviewCard";
 import Section from "../shared/Section";
+import { motion } from "motion/react";
+import { revealVar } from "../../motion/opacityReveal";
 
 const Reviews = () => {
-  const [viewAll, setViewAll] = useState(false);
+  const [showAll, setShowAll] = useState(false);
   return (
     <Section>
-      <div className="container relative space-y-6 xl:space-y-8">
+      <motion.div
+        variants={revealVar}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="container relative space-y-6 xl:space-y-8"
+      >
         <div className="absolute right-0 -z-10 h-full w-1/4 bg-violetLight blur-[300px]" />
         <div className="flex justify-between">
           <div className="flex items-center gap-12">
@@ -36,23 +44,29 @@ const Reviews = () => {
             </div>
           </div>
           <button
-            onClick={() => setViewAll(!viewAll)}
+            onClick={() => setShowAll(!showAll)}
             className="flex items-center gap-2 text-sm font-light text-primary md:focus:opacity-35 lg:hidden"
           >
-            <div className="">View {viewAll ? "less" : "All"}</div>
-            <img src={chevronRight} alt="-" width={16} height={16} />
+            <div className="">View {showAll ? "less" : "All"}</div>
+            <img
+              src={chevronRight}
+              alt="-"
+              width={16}
+              height={16}
+              className={`${showAll && "rotate-90"}`}
+            />
           </button>
         </div>
         <div
           className={`overflow-scroll no-scrollbar ${
-            viewAll ? "max-md:grid sm:max-md:grid-cols-2" : ""
+            showAll ? "max-md:grid sm:max-md:grid-cols-2" : ""
           } flex items-center gap-4 md:grid md:gap-3 xl:grid-cols-2 xl:gap-6`}
         >
           {gameReviews.map((game) => (
-            <ReviewCard key={game.id} game={game} viewAll={viewAll} />
+            <ReviewCard key={game.id} game={game} showAll={showAll} />
           ))}
         </div>
-      </div>
+      </motion.div>
     </Section>
   );
 };

@@ -7,6 +7,9 @@ import { useState } from "react";
 import { useEffect } from "react";
 import Filter from "./Filter";
 
+import { motion } from "motion/react";
+import { revealVar } from "../../motion/opacityReveal";
+
 const initialFilterParams = {
   search: "",
   categories: [],
@@ -116,7 +119,13 @@ const GamesByFilter = ({}) => {
   };
   return (
     <Section>
-      <div className="container relative space-y-6 lg:space-y-8">
+      <motion.div
+        variants={revealVar}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="container relative space-y-6 lg:space-y-8"
+      >
         <div className="absolute left-0 -z-10 h-full w-1/4 bg-violetLight blur-[300px]" />
         <div className="space-y-1 text-center">
           <h1 className="text-2xl font-bold">Games By Filter</h1>
@@ -170,7 +179,7 @@ const GamesByFilter = ({}) => {
             </div>
           )}
         </div>
-      </div>
+      </motion.div>
     </Section>
   );
 };

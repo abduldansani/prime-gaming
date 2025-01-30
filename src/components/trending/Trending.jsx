@@ -3,12 +3,20 @@ import { arrowLeft, arrowRight, chevronRight } from "../../assets";
 import { trendingGames } from "../../constants/trendingGames";
 import Section from "../shared/Section";
 import TrendingGame from "./TrendingGame";
+import { motion } from "motion/react";
+import { revealVar } from "../../motion/opacityReveal";
 
 const Trending = () => {
   const [showAll, setShowAll] = useState(false);
   return (
     <Section>
-      <div className="container space-y-6 xl:space-y-8">
+      <motion.div
+        variants={revealVar}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="container space-y-6 xl:space-y-8"
+      >
         <div className="flex justify-between">
           <div className="flex items-center gap-12">
             <h2 className="text-xl font-semibold lg:text-2xl lg:font-bold">
@@ -40,7 +48,13 @@ const Trending = () => {
             className="flex items-center gap-2 text-sm font-light text-primary lg:hidden"
           >
             <div className="">{showAll ? "View less" : "View All"}</div>
-            <img src={chevronRight} alt="-" width={16} height={16} />
+            <img
+              src={chevronRight}
+              alt="-"
+              width={16}
+              height={16}
+              className={`${showAll && "rotate-90"}`}
+            />
           </button>
         </div>
         <div
@@ -54,7 +68,7 @@ const Trending = () => {
             <TrendingGame key={game.id} game={game} showAll={showAll} />
           ))}
         </div>
-      </div>
+      </motion.div>
     </Section>
   );
 };

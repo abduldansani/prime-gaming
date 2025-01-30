@@ -3,11 +3,20 @@ import { faq } from "../constants/faq";
 import Section from "./shared/Section";
 import { faqClose, faqOpen } from "../assets";
 
+import { motion } from "motion/react";
+import { revealVar } from "../motion/opacityReveal";
+
 const Faq = () => {
   const [openQuestion, setOpenQuestion] = useState(null);
   return (
     <Section classNAme="overflow-hidden">
-      <div className="container relative space-y-3 xl:space-y-6">
+      <motion.div
+        variants={revealVar}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="container relative space-y-3 xl:space-y-6"
+      >
         <div className="absolute right-0 -z-10 h-full w-1/4 bg-violetLight blur-[300px]" />
         <div className="absolute left-0 -z-10 h-full w-1/4 bg-violetLight blur-[300px]" />
         <h2 className="text-center text-[32px] font-bold">FAQ</h2>
@@ -45,7 +54,7 @@ const Faq = () => {
             </div>
           ))}
         </div>
-      </div>
+      </motion.div>
     </Section>
   );
 };

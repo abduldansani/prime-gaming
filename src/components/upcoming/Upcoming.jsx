@@ -3,12 +3,20 @@ import { arrowLeft, arrowRight, chevronRight } from "../../assets";
 import { upcomingGames } from "../../constants/upcomingGames";
 import Section from "../shared/Section";
 import UpcomingGameCard from "./UpcomingGameCard";
+import { motion } from "motion/react";
+import { revealVar } from "../../motion/opacityReveal";
 
 const Upcoming = () => {
   const [showAll, setShowAll] = useState(false);
   return (
     <Section>
-      <div className="container relative space-y-6 xl:space-y-8">
+      <motion.div
+        variants={revealVar}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="container relative space-y-6 xl:space-y-8"
+      >
         <div className="absolute left-0 -z-10 h-full w-1/4 bg-violetLight blur-[250px]" />
         <div className="flex justify-between">
           <div className="flex items-center gap-12">
@@ -41,7 +49,13 @@ const Upcoming = () => {
             className="flex items-center gap-2 text-sm font-light text-primary lg:hidden"
           >
             <div className="">View {showAll ? "Less" : "All"}</div>
-            <img src={chevronRight} alt="-" width={16} height={16} />
+            <img
+              src={chevronRight}
+              alt="-"
+              width={16}
+              height={16}
+              className={`${showAll && "rotate-90"}`}
+            />
           </button>
         </div>
         <div
@@ -55,7 +69,7 @@ const Upcoming = () => {
             <UpcomingGameCard key={game.id} game={game} showAll={showAll} />
           ))}
         </div>
-      </div>
+      </motion.div>
     </Section>
   );
 };
