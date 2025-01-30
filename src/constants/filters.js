@@ -12,7 +12,16 @@ export const categories = [
 ];
 
 export const filterSelect = {
-  Platform: ["All", "Ps 5", "Xbox Series S", "Pc", "Xbox Series X"],
+  Platform: [
+    "All",
+    "PC",
+    "PS 4",
+    "PS 5",
+    "Xbox One",
+    "Xbox Series X",
+    "Nintendo Switch",
+  ],
+
   Publisher: [
     "All",
     "CD Projekt",
